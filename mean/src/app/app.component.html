@@ -2,6 +2,7 @@
   <head>
   </head>
   <body>
+    <div class="top"></div>
       <ul >
           <li *ngFor="let product of products; let i=index" (click)="listClick(product)" 
               [ngClass]="{'active': selectedIndex == i}" >
