@@ -40,7 +40,7 @@ router.get('/products', (req, res) => {
       var len=6;
           for(i=0;i<len;i++)
               {
-              store = store + JSON.stringify({pid:rows[i].Pcode, Name:rows[i].Name, Prize: rows[i].Prize, Gst: rows[i].Gst,Quandity:rows[i].Quandity});
+              store = store + JSON.stringify({pid:rows[i].Pcode, Name:rows[i].Name, Prize: rows[i].Prize, Gst: rows[i].Gst,Quantity:rows[i].Quandity});
               if(i!=len-1)
                   {
               store=store+',';

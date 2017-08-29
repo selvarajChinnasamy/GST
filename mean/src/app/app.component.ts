@@ -8,10 +8,16 @@ import {Product} from './product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  i=0;
   title = [ "Ford", "BMW", "Fiat" ];
   selectedItem : Product;
   products : Array<any>[];
+  addbill : Array<any>[];
   searchproducts : Array<any>[];
+  //agg product to billing
+productbill(newValue: Product){
+  this.addbill.push( new (newValue));
+}
     //List click listener
     listClick(newValue: Product) {
 
