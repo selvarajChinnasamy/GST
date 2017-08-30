@@ -10,7 +10,7 @@ export class DataService {
   constructor(private _http: Http) { }
 
   getData() {
-    return this._http.get("/api/products")
+    return this._http.get("http://localhost:3005/products")
       .map(result => this.result = result.json());
   }
   postData(prod: Product) {

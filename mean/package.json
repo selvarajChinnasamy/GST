@@ -24,8 +24,11 @@
     "body-parser": "^1.17.2",
     "core-js": "^2.4.1",
     "express": "^4.15.4",
+    "hapi-error": "^1.8.0",
     "inert": "^4.2.1",
+    "lout": "^10.0.2",
     "rxjs": "^5.4.2",
+    "vision": "^4.1.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

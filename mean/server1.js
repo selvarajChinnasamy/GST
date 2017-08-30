@@ -1,33 +1,51 @@
-var Hapi = require('hapi')
+var Hapi = require('hapi');
+var server = new Hapi.Server();
+var mysql= require('mysql');
+var http = require("http");
+server.connection({ port: 3005 });
+server.route({
+    method: 'GET',
+        path: '/products',
+      handler: (req, res) => {
+        var store ='{"products":[';
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+            host:'localhost',
+            user:'root',
+            pass:'',
+            database:'gstapp'
+        });
+        
+        connection.connect();
+        
+        connection.query('SELECT `Name`, `Price`, `Gst`, `Quantity`, `Pcode` FROM `product`;', function (err, rows, fields) {
+          if (err) throw err;
+          var len=2;
+              for(i=0;i<len;i++)
+                  {
+                  store = store + JSON.stringify({pid:rows[i].Pcode, Name:rows[i].Name, Price: rows[i].Price, Gst: rows[i].Gst,Quantity:rows[i].Quantity});
+                  if(i!=len-1)
+                      {
+                  store=store+',';
+                      }
+                  }
+                  store=store+']}';
+                  //store= store + JSON.stringify(objs);
+                console.log(store);
+                //   res.setHeader("Content-Type", "text/json");
+                //   res.setHeader("Access-Control-Allow-Origin", "*");
+                //   res.end(store)
+                  res(store).header("Content-Type", "text/json")
+                  .header("Access-Control-Allow-Origin", "*");
+          
+        });
+        
+        connection.end();
+}
+});
 
-// create new server instance
-var server = new Hapi.Server()
+server.start(function(){
+    console.log('hapi started');
+});
 
-// add server’s connection information
-server.connection({  
-  host: 'localhost',
-  port: 3000
-})
-
-server.register({  
-  register: require('inert')
-}, function(err) {
-  if (err) throw err
-
-
-
-    server.route({  
-        method: 'GET',
-        path: '/',
-        handler: function (request, reply) {
-          // reply.file() expects the file path as parameter
-          reply.file('dist/index.html')
-        }
-      })
-
-
-
-  server.start(function(err) {
-    console.log('Server started at: ' + server.info.uri)
-  })
-})
+module.exports = server;
