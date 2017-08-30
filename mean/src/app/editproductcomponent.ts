@@ -19,7 +19,9 @@ import {Product} from './product';
             .subscribe(res => this.products = this.searchproducts = res.products);
   }
 
-
+  delete(){
+    this._dataService.postDelete(this.selectedItem);
+  }
   update (){
     console.log('update');
     this._dataService.postData(this.selectedItem);

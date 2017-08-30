@@ -25,4 +25,10 @@ export class DataService {
     return this._http.post("/api/addproduct",prod).subscribe();
   }
 
+  postDelete(prod: Product) {
+    console.log('Add  Product');
+    console.log(prod);
+    return this._http.post("/api/deleteproduct",prod).subscribe();
+  }
+
 }

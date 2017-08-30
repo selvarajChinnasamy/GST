@@ -23,7 +23,6 @@
     margin-top: 0.5%;
   height: 80%;
    margin-left: 4%;
-   overflow:scroll; 
     position: absolute;
   }
   .div2{
@@ -82,10 +81,11 @@
   border-left-color: #00acd6;
 }
 .search{
-  background: white;
-  border: none;
-  border-bottom: 2px solid red;
-  padding: 5px 8px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding-left: 40px;
 }
 .counter{
   color:black;

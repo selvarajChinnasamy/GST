@@ -1,0 +1,134 @@
+.head{
+    font-family: Lobster;
+    margin-top:0px;
+  font-size:70px;
+  padding: 25px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  text-align: center;
+  color: white;
+  }
+  .top{
+    position: relative;
+    height: 20%;
+    background-color: #2F4F4F;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  .div1{
+    background: #20B2AA;
+    position: relative;
+    margin-top: 0.5%;
+  height: 80%;
+   margin-left: 4%;
+   overflow:scroll; 
+    position: absolute;
+  }
+  .div2{
+    background: #20B2AA;
+    position: relative;
+    height: 80%;
+    margin-top: 0.5%;
+    margin-left: 29%;
+  }
+  .div3{
+    background: #20B2AA;
+    margin-top: 0.5%;
+    position: relative;
+    margin-left: 0.5%;
+    height: 80%;
+    width: 16%;
+  }
+  .results tr[visible='false'],
+  .no-result{
+    display:none;
+  }
+  
+  .results tr[visible='true']{
+    display:table-row;
+  }
+  
+  .counter{
+    padding:8px; 
+    color:#ccc;
+  }
+  .addicon{
+    position: absolute;
+    margin-left: 3%;
+  }
+  .addicon:hover{
+    pointer:pointer;
+  }
+  .tooltip-inner {
+  background-color: #00acd6 !important;
+  color: #fff;
+}
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: #00acd6;
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #00acd6;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #00acd6;
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #00acd6;
+}
+.search{
+  background: white;
+  border: none;
+  border-bottom: 2px solid red;
+  padding: 5px 8px;
+}
+.counter{
+  color:black;
+}
+.pprize{
+  display: none;
+}
+.pgst{
+  display: none;
+}
+.button1{
+  display: none;
+}
+.back{
+  background: url(../assets/img/vegetables-wallpaper-11.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+tr{
+  background: #2F4F4F;
+  color: white;
+}
+tr td{
+  background: #008080;
+}
+.modal-header{
+  background: #2F4F4F;
+  color:white;
+}
+
+.modal-body{
+  background: #20B2AA;
+}
+.modal-footer{
+  background: #20B2AA;
+}
+.btn-info{
+  background: #2F4F4F;
+}
+.quandity{
+  color: black;
+}
+
+.btn-group{
+    margin-left:75%;
+}

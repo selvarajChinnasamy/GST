@@ -23,7 +23,13 @@ import {Product} from './product';
   gstcalc()
   {
     this.selectedproducts.forEach(prod => {
+      if(prod.Quantity==0){
+        this.selectedproducts=null;  
+      }
+      else
+        {
           this.gst = this.gst + ((prod.Gst*prod.Price) + prod.Price)*prod.Quantity;
+        }
       });
   }
   filterItem(value){

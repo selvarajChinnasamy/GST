@@ -9,12 +9,12 @@
                 <div class="row">
                         <div style="margin-left:4%">
                           <!-- <a href="https://www.google.co.in/">Google</a> -->
-                            <input class="search" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
+                            <input class="form-control search" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
                       </div>
                         <div class="col-sm-3 div1" >
-                            <div *ngFor="let item of searchproducts">
+                            <!-- <div *ngFor="let item of searchproducts">
                                 {{item.Name}}
-                             </div>
+                             </div> -->
                              <table class="table table-hover table-bordered results " id="first">
                                 <thead>
                                   <tr>
@@ -29,20 +29,25 @@
                                   <td class='pid' >{{item.pid}}</td>
                                   <td class='pname'>{{item.Name}}</td>
                                   <td class='pquandity' >{{item.Quantity}}</td>
-                                  <td class='pprize' >{{item.Prize}}</td>
+                                  <td class='pprize' >{{item.Price}}</td>
                                   <td class='pgst' >{{item.Gst}}</td>
                               </tr>
                                 </tbody>
                               </table>
                     </div>
                     <div class="col-sm-6 div2"  >
-                       <div>
-                              <input type="text" placeholder="Name" [(ngModel)]=selectedItem.Name />
-                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Prize />
-                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Gst />
-                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Quantity />
-                              <button (click)="update()" >Update</button>
-                            </div>
+                      <br>
+                      <div class="form-group">
+                          <label for="pwd">Name :</label>
+                             <input type="text"  class="form-control" placeholder="Name" [(ngModel)]=selectedItem.Name /></div><br>
+                             <div class="form-group">
+                                <label for="pwd">Price :</label> <input type="number"  class="form-control" placeholder="Name" [(ngModel)]=selectedItem.Price /></div><br>
+                                <div class="form-group">
+                                    <label for="pwd">Gst  :</label> <input type="number" class="form-control"  placeholder="Name" [(ngModel)]=selectedItem.Gst /></div><br>
+                              <div class="form-group">
+                                  <label for="pwd">Quantity :</label> <input type="number"  class="form-control" placeholder="Name" [(ngModel)]=selectedItem.Quantity /></div><br>
+                              <button class="btn btn-primary" (click)="update()" >Update</button> 
+                              <button class="btn btn-danger" (click)="delete()" >Delete</button> <br><br>
                     </div>
                       <!-- <ul >
                           <li *ngFor="let product of products; let i=index" (click)="listClick(product)" 

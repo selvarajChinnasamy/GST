@@ -8,12 +8,17 @@
       <h1 class="head">Geocery Store</h1>
     </div>
     <nav>
-      <a routerLink="/add-product" routerLinkActive="active">Add product</a>
-      <a routerLink="/edit-product" routerLinkActive="active">Edit Product</a>
-      <a routerLink="/bill" routerLinkActive="active">Bill products</a>
+        <div class="btn-group">
+            <!-- <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button> -->
+         
+      <a class="btn btn-primary" style="background: #20B2AA;" routerLink="/add-product" routerLinkActive="active">Add product</a>
+      <a class="btn btn-primary" style="background: #20B2AA;" routerLink="/edit-product" routerLinkActive="active">Edit Product</a>
+      <a class="btn btn-primary" style="background: #20B2AA;" routerLink="/bill" routerLinkActive="active">Bill products</a>
+    </div>
     </nav>
+  
     <router-outlet></router-outlet>
-    
-   
     </body>
 </html>

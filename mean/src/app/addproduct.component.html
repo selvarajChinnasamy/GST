@@ -7,16 +7,25 @@
 </head>
 <body>
         <div class="row">
-            <div class="col-sm-6 div2"  >
-                     <input type="text" placeholder="Name" [(ngModel)]=addItem.Name />
-                                    <input type="number" placeholder="Name" [(ngModel)]=addItem.Price />
-                                    <input type="number" placeholder="Name" [(ngModel)]=addItem.Gst />
-                                    <input type="number" placeholder="Name" [(ngModel)]=addItem.Quantity />
-                                    <button (click)="Addproduct()" >Add</button>
-                                    {{addItem.Name}}
+            <div class="col-sm-6 div2"  ><br>
+              <div class="form-group">
+                  <label for="pwd">Name :</label>
+                     <input type="text"  class="form-control"  placeholder="Name" [(ngModel)]=addItem.Name />
+              </div> <br>
+              <div class="form-group">
+                  <label for="pwd">Price :</label><input type="number"  class="form-control"  placeholder="Name" [(ngModel)]=addItem.Price />
+              </div> <br>
+              <div class="form-group">
+                  <label for="pwd">Gst % :</label><input type="number"  class="form-control" placeholder="Name" [(ngModel)]=addItem.Gst />
+              </div><br>
+              <div class="form-group">
+                  <label for="pwd">Quantity :</label><input type="number"  class="form-control" placeholder="Name" [(ngModel)]=addItem.Quantity />
+              </div> <br> 
+              <button class="btn btn-success" (click)="Addproduct()" >Add</button><br><br>
+                                    <!-- {{addItem.Name}}
                                     {{addItem.Price}}
                                     {{addItem.Gst}}
-                                    {{addItem.Quantity}}
+                                    {{addItem.Quantity}} -->
 
                 </div>
               <!-- <ul >

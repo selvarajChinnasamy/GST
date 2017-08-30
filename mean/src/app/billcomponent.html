@@ -7,22 +7,16 @@
         </head>
         <body>
                 <div class="row">
-                        <div style="margin-left:4%">
+                        <div style="margin-left:4%" class="div1">
                           <!-- <a href="https://www.google.co.in/">Google</a> -->
-                            <input class="search" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
-                      </div>
-                        <div class="col-sm-3 div1" >
-                            <div *ngFor="let item of searchproducts let i=index" (click)="listClick(item)"  
+                            <input class="form-control search" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
+                            <div style="margin-left:4%" *ngFor="let item of searchproducts let i=index" (click)="listClick(item)"  
                             [ngClass]="{'active': selectedIndex == i}">
                                 {{item.Name}}
                              </div>
-                    </div>
+                          </div>
                     <div class="col-sm-6 div2"  >
-                              <!-- <input type="text" placeholder="Name" [(ngModel)]=selectedItem.Name />
-                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Prize />
-                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Gst />
-                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Quantity />
-                              <button (click)="update()" >Update</button> -->
+                      <br>
                               <table class="table table-hover table-bordered results ">
                                     <thead>
                                       <tr>
@@ -34,6 +28,7 @@
                                     <tbody>  
                             
                             <tr class="pr" *ngFor="let additem of selectedproducts" >
+                              <td>{{additem.pid}}</td>
                              <td class='pname'>{{additem.Name}}</td>
                              <td class='pquandity' >
                                 <input style="color:black" type="number" [(ngModel)]=additem.Quantity (ngModelChange)="gstcalc()" /></td>
@@ -42,31 +37,6 @@
                       </table>
                       <h1> GST {{gst}}</h1>
                     </div>
-                      <!-- <ul >
-                          <li *ngFor="let product of products; let i=index" (click)="listClick(product)" 
-                              [ngClass]="{'active': selectedIndex == i}" >
-                             {{ product.pid }}
-                          </li>
-                       </ul>
-                       <div>
-                         <input type="text" placeholder="Name" [(ngModel)]=selectedItem.Name />
-                         <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Price />
-                         <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Gst />
-                         <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Quantity />
-                         <button (click)="update()" >Update</button>
-                       </div>
-                      <div>
-                        {{selectedItem.Name}}
-                        {{selectedItem.Price}}
-                        {{selectedItem.Gst}}
-                        {{selectedItem.Quantity}}
-                      </div>
-                
-                      <input #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
-                      
-                      <div *ngFor="let item of searchproducts">
-                         {{item.Name}}
-                      </div> -->
                     </div>
         </body>
         </html>
