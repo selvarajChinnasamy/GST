@@ -14,7 +14,15 @@ export class DataService {
       .map(result => this.result = result.json());
   }
   postData(prod: Product) {
-    console.log('update1');
-    return this._http.post("/api/update",JSON.stringify(prod)).subscribe();
+    console.log('Prod');
+    console.log(prod);
+    return this._http.post("/api/update",prod).subscribe();
   }
+
+  postDataadd(prod: Product) {
+    console.log('Add  Product');
+    console.log(prod);
+    return this._http.post("/api/addproduct",prod).subscribe();
+  }
+
 }

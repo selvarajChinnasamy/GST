@@ -35,12 +35,12 @@ router.get('/products', (req, res) => {
     
     connection.connect();
     
-    connection.query('SELECT `Name`, `Prize`, `Gst`, `Quandity`, `Pcode` FROM `product`;', function (err, rows, fields) {
+    connection.query('SELECT `Name`, `Price`, `Gst`, `Quantity`, `Pcode` FROM `product`;', function (err, rows, fields) {
       if (err) throw err;
-      var len=6;
+      var len=2;
           for(i=0;i<len;i++)
               {
-              store = store + JSON.stringify({pid:rows[i].Pcode, Name:rows[i].Name, Prize: rows[i].Prize, Gst: rows[i].Gst,Quantity:rows[i].Quandity});
+              store = store + JSON.stringify({pid:rows[i].Pcode, Name:rows[i].Name, Price: rows[i].Price, Gst: rows[i].Gst,Quantity:rows[i].Quantity});
               if(i!=len-1)
                   {
               store=store+',';
@@ -60,12 +60,12 @@ router.get('/products', (req, res) => {
 });
 
 router.post('/update', (req, res) => {
-    console.log('asdfgh');
-    var name='';
-    var price='';
-    var quantity='';
-    var gst='';
-    var code='';
+    var name=req.body.Name
+    var price=req.body.Price;
+    var quantity=req.body.Quantity;
+    var gst=req.body.Gst;
+    var code=req.body.pid;
+    console.log(req.body);
     var mysql = require('mysql');
     var connection = mysql.createConnection({
         host:'localhost',
@@ -74,12 +74,37 @@ router.post('/update', (req, res) => {
         database:'gstapp'
     });
     connection.connect();
-    var sql="UPDATE `product` SET `Name`="+name+",`Prize`="+price+",`Gst`="+gst+",`Quandity`="+quantity+" WHERE `Pcode`="+code;
+    var sql="UPDATE `product` SET `Name`='"+name+"',`Price`='"+price+"',`Gst`='"+gst+"',`Quantity`='"+quantity+"'  WHERE `Pcode`='"+code+"'";
     connection.query(sql, function (err, rows, fields) {
       if (err) throw err;   
       res.send('Success');   
     });
     connection.end();   
 });
-    
+   
+
+router.post('/addproduct', (req, res) => {
+    var name=req.body.Name
+    var price=req.body.Price;
+    var quantity=req.body.Quantity;
+    var gst=req.body.Gst;
+    var code=req.body.pid;
+    console.log(req.body);
+    var mysql = require('mysql');
+    var connection = mysql.createConnection({
+        host:'localhost',
+        user:'root',
+        pass:'',
+        database:'gstapp'
+    });
+    connection.connect();
+    var sql="INSERT INTO `product`(`Name`, `Price`, `Gst`, `Quantity`, `Pcode`) VALUES ('"+name+"','"+price+"','"+quantity+"','"+code+"'"+")";
+    connection.query(sql, function (err, rows, fields) {
+      if (err) throw err;   
+      res.send('Success');   
+    });
+    connection.end();   
+});
+
+
 module.exports = router;

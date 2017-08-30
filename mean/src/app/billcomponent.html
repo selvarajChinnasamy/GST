@@ -1,0 +1,72 @@
+<html>
+        
+        <head>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </head>
+        <body>
+                <div class="row">
+                        <div style="margin-left:4%">
+                          <!-- <a href="https://www.google.co.in/">Google</a> -->
+                            <input class="search" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
+                      </div>
+                        <div class="col-sm-3 div1" >
+                            <div *ngFor="let item of searchproducts let i=index" (click)="listClick(item)"  
+                            [ngClass]="{'active': selectedIndex == i}">
+                                {{item.Name}}
+                             </div>
+                    </div>
+                    <div class="col-sm-6 div2"  >
+                              <!-- <input type="text" placeholder="Name" [(ngModel)]=selectedItem.Name />
+                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Prize />
+                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Gst />
+                              <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Quantity />
+                              <button (click)="update()" >Update</button> -->
+                              <table class="table table-hover table-bordered results ">
+                                    <thead>
+                                      <tr>
+                                        <th class="col-sm-2">Product Id</th>
+                                        <th class="col-sm-4">Product Name</th>
+                                        <th class="col-sm-2">Product Quantity</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>  
+                            
+                            <tr class="pr" *ngFor="let additem of selectedproducts" >
+                             <td class='pname'>{{additem.Name}}</td>
+                             <td class='pquandity' >
+                                <input style="color:black" type="number" [(ngModel)]=additem.Quantity (ngModelChange)="gstcalc()" /></td>
+                            </tr>
+                        </tbody>
+                      </table>
+                      <h1> GST {{gst}}</h1>
+                    </div>
+                      <!-- <ul >
+                          <li *ngFor="let product of products; let i=index" (click)="listClick(product)" 
+                              [ngClass]="{'active': selectedIndex == i}" >
+                             {{ product.pid }}
+                          </li>
+                       </ul>
+                       <div>
+                         <input type="text" placeholder="Name" [(ngModel)]=selectedItem.Name />
+                         <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Price />
+                         <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Gst />
+                         <input type="number" placeholder="Name" [(ngModel)]=selectedItem.Quantity />
+                         <button (click)="update()" >Update</button>
+                       </div>
+                      <div>
+                        {{selectedItem.Name}}
+                        {{selectedItem.Price}}
+                        {{selectedItem.Gst}}
+                        {{selectedItem.Quantity}}
+                      </div>
+                
+                      <input #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
+                      
+                      <div *ngFor="let item of searchproducts">
+                         {{item.Name}}
+                      </div> -->
+                    </div>
+        </body>
+        </html>

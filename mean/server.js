@@ -7,10 +7,10 @@ const app = express();
 //Interacting with mongo DB
 const mongapi = require('./server/routes/api');
 
-const mongapi1 = require('./server/routes/api1');
+// const mongapi1 = require('./server/routes/api1');
 
 
-const mongapi2 = require('./server/routes/api2');
+// const mongapi2 = require('./server/routes/api2');
 
 //Parsers
 
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // API location
-app.use('/api2', mongapi2);
+// app.use('/api2', mongapi2);
 
 //app.use('/api1', mongapi1);
 

@@ -15,9 +15,9 @@ export class AppComponent {
   addbill : Array<any>[];
   searchproducts : Array<any>[];
   //agg product to billing
-productbill(newValue: Product){
-  this.addbill.push( new (newValue));
-}
+// productbill(newValue: Product){
+//   this.addbill.push( new (newValue));
+// }
     //List click listener
     listClick(newValue: Product) {
 
