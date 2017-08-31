@@ -104,13 +104,6 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-tr{
-  background: #2F4F4F;
-  color: white;
-}
-tr td{
-  background: #008080;
-}
 .modal-header{
   background: #2F4F4F;
   color:white;

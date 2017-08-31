@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
 import {Product} from './product';
-
+import {Bill} from './product'; 
+import {Selected} from './product'; 
 @Component({
     selector: 'app-bill',
     templateUrl: './billcomponent.html',
@@ -12,7 +13,9 @@ import {Product} from './product';
 
     products : Array<any>[];
     searchproducts : Array<any>[];
-    selectedproducts : Product[] = [];
+    selectedproducts : Array<Selected>=[];
+    bill : Bill;
+    set : number=0;
     gst : number = 0.0;
     constructor(private _dataService: DataService) {
         
@@ -22,16 +25,24 @@ import {Product} from './product';
   }
   gstcalc()
   {
-    this.selectedproducts.forEach(prod => {
-      if(prod.Quantity==0){
-        this.selectedproducts=null;  
-      }
-      else
-        {
-          this.gst = this.gst + ((prod.Gst*prod.Price) + prod.Price)*prod.Quantity;
-        }
-      });
-  }
+    // this.selectedproducts.forEach(prod => {
+    //   if(prod.Quantity==0){
+    //     this.selectedproducts=null;  
+    //   }
+    //   else
+    //     {
+    //       this.gst = this.gst + ((prod.Gst*prod.Price) + prod.Price)*prod.Quantity;
+    //     }
+    //   });
+    var index=0;
+    this.gst=0;
+for (index = 0; index < this.selectedproducts.length; ++index) {
+   var item = this.selectedproducts[index];
+   var cost =((item.Gst*item.oners)+item.oners)*item.Quantity;
+   this.selectedproducts[index].Price=cost;
+    this.gst=this.gst+cost;
+}
+}
   filterItem(value){
     if(!value)
      {
@@ -44,8 +55,22 @@ import {Product} from './product';
   }
 
   listClick(newValue: Product) {
-            this.selectedproducts.push(newValue);
-         // don't forget to update the model here
-          // ... do other stuff here ...
+    console.log(newValue);
+    var hasMatch =false;
+    var index=0;
+    for (index = 0; index < this.selectedproducts.length; ++index) {
+      
+       var animal = this.selectedproducts[index];
+      
+       if(animal.pid == newValue.pid){
+         hasMatch = true;
+         break;
+       }
       }
-  }
+      if(hasMatch==false)
+        {
+            var cost =(newValue.Gst*newValue.Price) +newValue.Price;
+            this.selectedproducts.push({'pid': newValue.pid ,'Name':newValue.Name,'Price':cost,'Gst':newValue.Gst,'Quantity':1,'oners':newValue.Price});
+       }
+      }
+    }

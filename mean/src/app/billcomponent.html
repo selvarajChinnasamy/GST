@@ -6,37 +6,124 @@
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         </head>
         <body>
+
+            <div class="container">
                 <div class="row">
-                        <div style="margin-left:4%" class="div1">
-                          <!-- <a href="https://www.google.co.in/">Google</a> -->
-                            <input class="form-control search" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
-                            <div style="margin-left:4%" *ngFor="let item of searchproducts let i=index" (click)="listClick(item)"  
-                            [ngClass]="{'active': selectedIndex == i}">
-                                {{item.Name}}
-                             </div>
-                          </div>
+                    <div class="col-xs-2">
+                        <input class="form-control" style="margin-left:0%" #myInput placeholder="Item name..." [(ngModel)]="searchname" (input)="filterItem(myInput.value)"/>
+                        <div  *ngFor="let item of searchproducts let i=index" (click)="listClick(item)"  
+                        [ngClass]="{'active': selectedIndex == i}">
+                            {{item.Name}}
+                         </div>
+                      </div>
+                    <div class="col-xs-9">
+                    <div class="invoice-title">
+                      <h2>Invoice</h2><h3 class="pull-right">Order # 12345</h3>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <address>
+                        <strong>Billed To:</strong><br>
+                          John Smith<br>
+                          1234 Main<br>
+                          Apt. 4B<br>
+                          Springfield, ST 54321
+                        </address>
+                      </div>
+                      <div class="col-xs-6 text-right">
+                        <address>
+                          <strong>Shipped To:</strong><br>
+                          Jane Smith<br>
+                          1234 Main<br>
+                          Apt. 4B<br>
+                          Springfield, ST 54321
+                        </address>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <address>
+                          <strong>Payment Method:</strong><br>
+                          Visa ending **** 4242<br>
+                          jsmith@email.com
+                        </address>
+                      </div>
+                      <div class="col-xs-6 text-right">
+                        <address>
+                          <strong>Order Date:</strong><br>
+                          March 7, 2014<br><br>
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div style="margin-left:17%" class="col-md-9">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Order summary</strong></h3>
+                      </div>
+                      <div class="panel-body">
+                        <div class="table-responsive">
+                          <table class="table table-condensed">
+                            <thead>
+                                            <tr>
+                                  <td><strong>Product Id</strong></td>
+                                  <td><strong>Item</strong></td>
+                                  <td><strong>Product Gst</strong></td>
+                                  <td class="text-center"><strong>Quantity</strong></td>
+                                  <td class="text-center"><strong>Totals</strong></td>
+                                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let additem of selectedproducts let i=index" >
+                                    <td>{{additem.pid}}</td>
+                                   <td class='pname'>{{additem.Name}}</td>
+                                   <td>{{additem.Gst}}%</td>
+                                   <td  >
+                                      <input style="color:black" type="number" [(ngModel)]=additem.Quantity (ngModelChange)="gstcalc()" /></td>
+                                  <td>{{additem.Price}}</td>
+                                </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                   
+                    </div>
+                  </div>
+                </div>
+                <h4 style="margin-left:75%">Total: {{gst}}</h4>
+            </div>
+
+                <!-- <div class="row">
                     <div class="col-sm-6 div2"  >
                       <br>
                               <table class="table table-hover table-bordered results ">
                                     <thead>
                                       <tr>
                                         <th class="col-sm-2">Product Id</th>
-                                        <th class="col-sm-4">Product Name</th>
+                                        <th class="col-sm-2">Product Name</th>
+                                        <th class="col-sm-2">Gst</th>
                                         <th class="col-sm-2">Product Quantity</th>
+                                        <th class="col-sm-2">Price</th>
                                       </tr>
                                     </thead>
                                     <tbody>  
                             
-                            <tr class="pr" *ngFor="let additem of selectedproducts" >
+                            <tr class="pr" *ngFor="let additem of selectedproducts let i=index" >
                               <td>{{additem.pid}}</td>
                              <td class='pname'>{{additem.Name}}</td>
+                             <td>{{additem.Gst}}%</td>
                              <td class='pquandity' >
                                 <input style="color:black" type="number" [(ngModel)]=additem.Quantity (ngModelChange)="gstcalc()" /></td>
-                            </tr>
+                            <td>{{additem.Price}}</td>
+                          </tr>
                         </tbody>
                       </table>
                       <h6>Total: {{gst}}</h6>
                     </div>
-                    </div>
+                    </div> -->
         </body>
         </html>
